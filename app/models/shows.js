@@ -10,7 +10,7 @@ const showSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  directedBy: {
+  director: {
     type: String,
     required: true
   },
