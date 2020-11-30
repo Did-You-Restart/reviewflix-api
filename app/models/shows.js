@@ -15,17 +15,17 @@ const showSchema = new mongoose.Schema({
     required: true
   },
   description: {
-      type: String,
-      required: true
+    type: String,
+    required: true
   },
   released: {
-      type: Date,
-      required: true
+    type: Date,
+    required: true
   },
   token: String
 }, {
   timestamps: true
-  }
+}
 )
 
 module.exports = mongoose.model('Show', showSchema)
