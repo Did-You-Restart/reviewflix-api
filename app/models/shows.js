@@ -22,7 +22,11 @@ const showSchema = new mongoose.Schema({
     type: Date,
     required: true
   },
-  token: String
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  }
 }, {
   timestamps: true
 }

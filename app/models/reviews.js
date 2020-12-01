@@ -15,7 +15,16 @@ const reviewSchema = new mongoose.Schema({
     max: 10,
     required: true
   },
-  token: String
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
+  show: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Show',
+    required: true
+  }
 }, {
   timestamps: true
 })
