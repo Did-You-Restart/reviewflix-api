@@ -5,6 +5,7 @@ const passport = require('passport')
 
 // pull in Mongoose model for shows
 const Show = require('../models/shows')
+const Review = require('../models/reviews')
 
 // this is a collection of methods that help us detect situations when we need
 // to throw a custom error
@@ -47,11 +48,20 @@ router.get('/shows', (req, res, next) => {
 // GET /shows/5a7db6c74d55bc51bdf39793
 router.get('/shows/:id', requireToken, (req, res, next) => {
   // req.params.id will be set based on the `:id` in the route
-  Show.findById(req.params.id)
+  let reviews
+  Review.find({ show: req.params.id })
+    .then(foundRevs => {
+      // console.log(foundRevs)
+      reviews = foundRevs
+      return Show.findById(req.params.id)
+    })
     .then(handle404)
-    // if `findById` is succesful, respond with 200 and "show" JSON
-    .then(show => res.status(200).json({ show: show.toObject() }))
-    // if an error occurs, pass it to the handler
+    .then(show => {
+      // console.log(reviews)
+      show.reviews = reviews
+      console.log('show is ', show)
+      res.status(200).json({ show: show, reviews: reviews })
+    })
     .catch(next)
 })
 
