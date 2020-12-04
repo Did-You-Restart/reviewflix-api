@@ -8,6 +8,25 @@ Technologies Used: Javascript, HTML/CSS React, React Bootstrap Axios
 
 Unsolved Problems: Connecting the API successfully for the deployed version.
 
+### Catalog of Routes
+
+Verb         |	URI Pattern
+------------ | -------------
+POST | /sign-up
+POST | /sign-in
+PATCH | /change-password
+DELETE | /sign-out 
+GET  |  /shows
+GET | /shows/:id
+POST | /shows
+PATCH | /shows/:id
+DELETE | /shows/:id
+GET | /reviews
+GET | /reviews/:id
+POST | /reviews
+PATCH | /reviews/:id
+DELETE | /reviews/:id  
+
 Wireframe: [Wireframe](https://imgur.com/a/dELOXIs)
 
 ERD: [ERD](https://imgur.com/a/Xu5Wb5G)
