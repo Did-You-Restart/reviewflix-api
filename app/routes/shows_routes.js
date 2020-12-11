@@ -59,7 +59,6 @@ router.get('/shows/:id', requireToken, (req, res, next) => {
     .then(show => {
       // console.log(reviews)
       show.reviews = reviews
-      console.log('show is ', show)
       res.status(200).json({ show: show, reviews: reviews })
     })
     .catch(next)
